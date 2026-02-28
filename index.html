@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sawan Jewellers · Gold · Silver · Diamond · Bridal</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #fefcf7;  /* warm white base */
+      color: #3e2e23;
+    }
+
+    /* main theme: gold, white, rose gold */
+    :root {
+      --gold: #b48b4b;
+      --gold-light: #e9d5b5;
+      --rose: #d9a89b;
+      --rose-light: #f7e1da;
+      --white: #ffffff;
+      --cream: #fffcf0;
+      --text-dark: #3a2c24;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header */
+    header {
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(180, 139, 75, 0.08);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--gold-light);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-shadow: 0 0 0 1px #f3e1c0;
+    }
+
+    .logo span {
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      color: var(--rose);
+      display: block;
+      line-height: 1.2;
+      font-weight: 300;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 2rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: var(--rose);
+      color: var(--gold);
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #fef7ec 0%, #fff5ed 100%);
+      border-radius: 0 0 60px 60px;
+      margin-bottom: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rose-light);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .hero-text h2 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1.3rem;
+      color: #956b4f;
+      margin: 1rem 0 2rem;
+      max-width: 550px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--rose);
+      color: white;
+      padding: 0.4rem 1.6rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 14px rgba(217, 168, 155, 0.35);
+    }
+
+    .hero-image {
+      background: #eedacb;
+      padding: 1rem 2rem;
+      border-radius: 200px 200px 60px 60px;
+      color: var(--gold);
+      font-size: 2rem;
+      border: 2px dashed var(--rose);
+    }
+    .hero-image i {
+      margin: 0 0.5rem;
+      color: var(--gold);
+    }
+
+    /* jewellery categories */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 350;
+      margin: 3rem 0 2rem;
+      color: var(--gold);
+      border-left: 8px solid var(--rose);
+      padding-left: 1.5rem;
+    }
+
+    .cat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border-radius: 40px 40px 20px 20px;
+      padding: 1.8rem 1.2rem;
+      min-width: 150px;
+      text-align: center;
+      box-shadow: 0 8px 20px #f0ddd1;
+      border: 1px solid #f1dbcf;
+      transition: 0.2s;
+      flex: 1 1 160px;
+    }
+
+    .cat-card i {
+      font-size: 2.8rem;
+      color: var(--rose);
+      margin-bottom: 0.8rem;
+    }
+
+    .cat-card h3 {
+      font-weight: 400;
+      color: var(--gold);
+      border-top: 1px solid var(--gold-light);
+      padding-top: 0.5rem;
+    }
+
+    /* catalogue — 10 items */
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 30px 30px 20px 20px;
+      padding: 1.5rem 1rem 1.2rem;
+      box-shadow: 0 8px 16px rgba(180, 139, 75, 0.1);
+      border: 1px solid var(--gold-light);
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--rose);
+      box-shadow: 0 16px 26px #e9cfbf;
+    }
+
+    .product-icon {
+      font-size: 3.2rem;
+      color: var(--gold);
+      background: #faf1e6;
+      width: 100px;
+      height: 100px;
+      line-height: 100px !important;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      box-shadow: inset 0 -2px 5px #fae2ce;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #5e4435;
+      border-bottom: 1px dashed var(--rose-light);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-type {
+      display: inline-block;
+      background: var(--rose-light);
+      border-radius: 50px;
+      padding: 0.2rem 1.2rem;
+      font-size: 0.8rem;
+      color: #7e5142;
+      margin: 0.5rem 0;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin: 0.2rem 0;
+    }
+
+    /* payment options */
+    .payment-section {
+      background: linear-gradient(100deg, #fffcf5, #fff3ed);
+      border-radius: 60px 60px 30px 30px;
+      padding: 3rem 2rem;
+      margin: 4rem 0;
+      border: 1px solid var(--rose-light);
+    }
+
+    .payment-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .payment-card {
+      background: white;
+      padding: 1.6rem 2rem;
+      border-radius: 60px;
+      box-shadow: 0 10px 20px #edd7cb;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .payment-card i {
+      font-size: 2.8rem;
+      color: var(--rose);
+      margin-right: 0.8rem;
+    }
+
+    .payment-card span {
+      font-size: 1.6rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .badge-upi {
+      background: #e4cdb2;
+      border-radius: 40px;
+      padding: 0.5rem 1.8rem;
+      font-size: 1.6rem;
+    }
+
+    /* ————— IMAGE GALLERY ————— */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 3rem;
+    }
+    .gallery-item {
+      background: var(--white);
+      border-radius: 40px 40px 20px 20px;
+      padding: 1.8rem 1rem 1.2rem;
+      box-shadow: 0 12px 24px rgba(180, 139, 75, 0.15);
+      border: 1px solid var(--gold-light);
+      text-align: center;
+      transition: 0.2s;
+    }
+    .gallery-item:hover {
+      border-color: var(--rose);
+      transform: scale(1.02);
+    }
+    .gallery-item i {
+      font-size: 4.5rem;
+      color: var(--rose);
+      background: #fbf1e9;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      line-height: 90px !important;
+      margin-bottom: 0.5rem;
+    }
+    .gallery-caption {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 400;
+      border-top: 1px dashed var(--rose-light);
+      padding-top: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* contact & location — with REAL Google map */
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      background: var(--white);
+      border-radius: 60px;
+      padding: 2.5rem;
+      box-shadow: 0 14px 28px #f0dbd0;
+      margin: 3rem 0;
+      border: 1px solid var(--gold-light);
+    }
+
+    .contact-details {
+      flex: 2 1 300px;
+    }
+
+    .contact-details h3 {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.8rem 0;
+      font-size: 1.2rem;
+    }
+
+    .detail-item i {
+      width: 50px;
+      height: 50px;
+      background: var(--rose-light);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--rose);
+    }
+
+    /* GOOGLE MAP iframe */
+    .map-container {
+      flex: 1 1 360px;
+      background: #f3e1d4;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 3px dotted var(--gold);
+      box-shadow: 0 8px 18px #ddc7b8;
+      min-height: 280px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+      display: block;
+    }
+
+    /* floating WhatsApp button — with updated phone number */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 2.8rem;
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.3);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      border: 2px solid white;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      background: #20b859;
+      transform: scale(1.08);
+      box-shadow: 0 18px 30px #25d3667a;
+    }
+
+    /* footer */
+    footer {
+      background: #352b23;
+      color: #e2cfbb;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-inner p i {
+      color: var(--rose);
+      margin: 0 0.4rem;
+    }
+
+    @media (max-width: 700px) {
+      .header-flex {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-links a {
+        margin: 0 1rem;
+      }
+      .hero-text h2 {
+        font-size: 2.5rem;
+      }
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 2.2rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- floating WhatsApp button with CORRECT PHONE NUMBER 9897382053 -->
+  <a href="https://wa.me/919897382053?text=Hello%20Sawan%20Jewellers%2C%20I%27m%20interested%20in%20your%20collection." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <h1>SAWAN JEWELLERS</h1>
+        <span><i class="fas fa-star"></i> since 1985 <i class="fas fa-star"></i></span>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- hero -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Gold · Silver · Diamond <br> & Bridal jewellery</h2>
+          <p>Elegance crafted in white, gold & rose gold — for every celebration.</p>
+          <span class="hero-badge"><i class="fas fa-gem"></i> Bridal special <i class="fas fa-gem"></i></span>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-ring"></i>
+          <i class="fas fa-crown" style="color: var(--rose);"></i>
+          <i class="fas fa-gem"></i>
+          <p style="font-size: 1rem; margin-top: 1rem;">✨ heritage finish ✨</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- jewellery type categories -->
+    <div class="cat-grid">
+      <div class="cat-card"><i class="fas fa-coins"></i><h3>Gold</h3></div>
+      <div class="cat-card"><i class="fas fa-ring"></i><h3>Silver</h3></div>
+      <div class="cat-card"><i class="fas fa-gem"></i><h3>Diamond</h3></div>
+      <div class="cat-card"><i class="fas fa-heart"></i><h3>Bridal</h3></div>
+    </div>
+
+    <!-- 10 CATALOGUE ITEMS (anchor #catalogue) -->
+    <h2 class="section-title" id="catalogue"><i class="fas fa-list-ul" style="margin-right: 1rem;"></i>our catalogue (10)</h2>
+    <div class="catalogue-grid">
+      <!-- 1 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-ring"></i></div>
+        <div class="product-title">Mogra choker</div>
+        <div class="product-type">Gold / Bridal</div>
+        <div class="product-price">₹1,82,000</div>
+      </div>
+      <!-- 2 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-gem"></i></div>
+        <div class="product-title">Diamond polki set</div>
+        <div class="product-type">Diamond / Rose gold</div>
+        <div class="product-price">₹3,45,000</div>
+      </div>
+      <!-- 3 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-ear-listen"></i></div>
+        <div class="product-title">Jhumka · Gold</div>
+        <div class="product-type">Gold</div>
+        <div class="product-price">₹68,500</div>
+      </div>
+      <!-- 4 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-hand"></i></div>
+        <div class="product-title">Silver bangles</div>
+        <div class="product-type">Silver</div>
+        <div class="product-price">₹22,400</div>
+      </div>
+      <!-- 5 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-crown"></i></div>
+        <div class="product-title">Bridal maang tika</div>
+        <div class="product-type">Gold / Rose gold</div>
+        <div class="product-price">₹98,000</div>
+      </div>
+      <!-- 6 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-gem"></i></div>
+        <div class="product-title">Solitaire ring</div>
+        <div class="product-type">Diamond / white</div>
+        <div class="product-price">₹2,15,000</div>
+      </div>
+      <!-- 7 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-clock"></i></div>
+        <div class="product-title">Silver vintage cuffs</div>
+        <div class="product-type">Silver</div>
+        <div class="product-price">₹19,999</div>
+      </div>
+      <!-- 8 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-feather"></i></div>
+        <div class="product-title">Rose gold necklace</div>
+        <div class="product-type">Rose gold</div>
+        <div class="product-price">₹1,27,000</div>
+      </div>
+      <!-- 9 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-star-and-crescent"></i></div>
+        <div class="product-title">Nath (nose ring)</div>
+        <div class="product-type">Gold / Bridal</div>
+        <div class="product-price">₹44,500</div>
+      </div>
+      <!-- 10 -->
+      <div class="product-card">
+        <div class="product-icon"><i class="fas fa-hand-sparkles"></i></div>
+        <div class="product-title">Stackable rings</div>
+        <div class="product-type">Gold / Silver set</div>
+        <div class="product-price">₹35,990</div>
+      </div>
+    </div>
+
+    <!-- IMAGE GALLERY SECTION -->
+    <h2 class="section-title" id="gallery"><i class="fas fa-images" style="margin-right: 1rem;"></i>jewellery gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <i class="fas fa-ring"></i>
+        <div class="gallery-caption">Gold bridal set</div>
+      </div>
+      <div class="gallery-item">
+        <i class="fas fa-gem"></i>
+        <div class="gallery-caption">Diamond collection</div>
+      </div>
+      <div class="gallery-item">
+        <i class="fas fa-ear-listen"></i>
+        <div class="gallery-caption">Rose gold jhumka</div>
+      </div>
+      <div class="gallery-item">
+        <i class="fas fa-crown"></i>
+        <div class="gallery-caption">Bridal maang tika</div>
+      </div>
+      <div class="gallery-item">
+        <i class="fas fa-hand-sparkles"></i>
+        <div class="gallery-caption">Silver vintage</div>
+      </div>
+      <div class="gallery-item">
+        <i class="fas fa-star-of-life"></i>
+        <div class="gallery-caption">Polki necklace</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin: 1rem 0 3rem; color: #936e54;"><i class="fas fa-camera-retro"></i> each piece is a work of art — visit store for actual images</p>
+
+    <!-- PAYMENT OPTIONS -->
+    <div class="payment-section">
+      <h2 class="section-title" style="margin-top: 0; border-left-color: var(--gold);"><i class="fas fa-credit-card"></i> easy payment</h2>
+      <div class="payment-flex">
+        <div class="payment-card">
+          <i class="far fa-credit-card"></i>
+          <span>Credit Card</span>
+        </div>
+        <div class="payment-card">
+          <i class="fas fa-credit-card"></i>
+          <span>Debit Card</span>
+        </div>
+        <div class="payment-card badge-upi">
+          <i class="fas fa-mobile-alt"></i>
+          <span>UPI · GPay · PhonePe</span>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem; color: #aa7b60;"><i class="fas fa-shield-alt"></i> secure 256-bit · all modes accepted</p>
+    </div>
+
+    <!-- CONTACT + GOOGLE MAP + UPDATED PHONE NUMBER 9897382053 -->
+    <h2 class="section-title" id="contact"><i class="fas fa-location-dot"></i> visit our showroom</h2>
+    <div class="contact-section">
+      <div class="contact-details">
+        <h3>Sawan Jewellers <span style="font-size: 1.2rem; color: var(--rose);"> · since 1985</span></h3>
+        <div class="detail-item">
+          <i class="fas fa-map-pin"></i>
+          <div><strong>📍 Court Road, Saharanpur</strong><br>Uttar Pradesh, India — 247001</div>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-phone-alt"></i>
+          <!-- UPDATED PHONE NUMBER HERE -->
+          <div>📞 +91 9897 382053  /  +91 9871 554400</div>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-envelope"></i>
+          <div>hello@sawanjewellers.co.in</div>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <div>Mon–Sat : 10:30 AM – 8:00 PM (Sun closed)</div>
+        </div>
+        <div style="margin-top: 1.2rem;">
+          <i class="fas fa-truck" style="color: var(--rose);"></i>  free hallmark & shipping on bridal
+        </div>
+      </div>
+      
+      <!-- REAL GOOGLE MAP EMBED (Court Road, Saharanpur) -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.813155363512!2d77.53974931511873!3d29.967394281905185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eea54c1463b63%3A0x9a1d8b2d5b2e0a7f!2sCourt%20Road%2C%20Saharanpur%2C%20Uttar%20Pradesh%20247001!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <!-- rose gold separator -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
+      <span style="width: 80px; height: 4px; background: var(--gold); border-radius: 4px;"></span>
+      <span style="width: 80px; height: 4px; background: var(--rose); border-radius: 4px;"></span>
+      <span style="width: 80px; height: 4px; background: var(--gold-light); border-radius: 4px;"></span>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p><i class="fas fa-copyright"></i> Sawan Jewellers — gold, silver, diamond & bridal.</p>
+      <p><i class="fas fa-map-marker-alt" style="color: var(--rose);"></i> Court Road, Saharanpur, Uttar Pradesh</p>
+      <p>pay via card / UPI <i class="fab fa-google-pay"></i> <i class="fas fa-credit-card"></i></p>
+    </div>
+  </footer>
+
+  <!-- note -->
+  <div style="text-align: center; margin: 1rem 0; font-size: 0.9rem; color: #b28b70;"><i class="fas fa-diamond"></i>  real craftsmanship · 10 featured catalogue  <i class="fas fa-diamond"></i></div>
+</body>
+</html>
